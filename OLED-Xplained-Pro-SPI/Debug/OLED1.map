@@ -6725,6 +6725,10 @@ Discarded input sections
  .bss           0x00000000        0x0 src/main.o
  .text.pisca_led
                 0x00000000       0x94 src/main.o
+ .text.cria_pino_entrada
+                0x00000000       0x24 src/main.o
+ .text.cria_pino_saida
+                0x00000000       0x24 src/main.o
  .text.RTC_init
                 0x00000000       0xa4 src/main.o
  .text.TC_init  0x00000000       0xa8 src/main.o
@@ -7566,7 +7570,7 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .comment       0x00000059       0x5a src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
  .comment       0x00000059       0x5a src/main.o
 
-.debug_info     0x00000000    0x17da4
+.debug_info     0x00000000    0x17eb1
  .debug_info    0x00000000     0x10f7 src/ASF/sam/drivers/rtc/rtc.o
  .debug_info    0x000010f7      0xcd1 src/ASF/sam/drivers/rtt/rtt.o
  .debug_info    0x00001dc8     0x115d src/ASF/sam/drivers/spi/spi.o
@@ -7585,7 +7589,7 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_info    0x00011e28     0x1e0e src/ASF/sam/drivers/pmc/pmc.o
  .debug_info    0x00013c36     0x156a src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_info    0x000151a0      0x55b src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_info    0x000156fb     0x26a9 src/main.o
+ .debug_info    0x000156fb     0x27b6 src/main.o
 
 .debug_abbrev   0x00000000     0x35d3
  .debug_abbrev  0x00000000      0x2e3 src/ASF/sam/drivers/rtc/rtc.o
@@ -7608,7 +7612,7 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_abbrev  0x00003145      0x102 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
  .debug_abbrev  0x00003247      0x38c src/main.o
 
-.debug_loc      0x00000000     0x5e1d
+.debug_loc      0x00000000     0x5f65
  .debug_loc     0x00000000      0x8d0 src/ASF/sam/drivers/rtc/rtc.o
  .debug_loc     0x000008d0      0x1c7 src/ASF/sam/drivers/rtt/rtt.o
  .debug_loc     0x00000a97      0x610 src/ASF/sam/drivers/spi/spi.o
@@ -7623,9 +7627,9 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_loc     0x00004620      0x588 src/ASF/sam/drivers/pio/pio_handler.o
  .debug_loc     0x00004ba8      0xce3 src/ASF/sam/drivers/pmc/pmc.o
  .debug_loc     0x0000588b       0x77 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
- .debug_loc     0x00005902      0x51b src/main.o
+ .debug_loc     0x00005902      0x663 src/main.o
 
-.debug_aranges  0x00000000      0x8f8
+.debug_aranges  0x00000000      0x908
  .debug_aranges
                 0x00000000       0xb8 src/ASF/sam/drivers/rtc/rtc.o
  .debug_aranges
@@ -7663,9 +7667,9 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_aranges
                 0x00000868       0x30 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
  .debug_aranges
-                0x00000898       0x60 src/main.o
+                0x00000898       0x70 src/main.o
 
-.debug_ranges   0x00000000      0x958
+.debug_ranges   0x00000000      0x968
  .debug_ranges  0x00000000       0xa8 src/ASF/sam/drivers/rtc/rtc.o
  .debug_ranges  0x000000a8       0x50 src/ASF/sam/drivers/rtt/rtt.o
  .debug_ranges  0x000000f8       0x80 src/ASF/sam/drivers/spi/spi.o
@@ -7683,7 +7687,7 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_ranges  0x00000660      0x240 src/ASF/sam/drivers/pmc/pmc.o
  .debug_ranges  0x000008a0       0x18 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_ranges  0x000008b8       0x20 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_ranges  0x000008d8       0x80 src/main.o
+ .debug_ranges  0x000008d8       0x90 src/main.o
 
 .debug_macro    0x00000000    0x211b8
  .debug_macro   0x00000000      0x678 src/ASF/sam/drivers/rtc/rtc.o
@@ -7876,7 +7880,7 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_macro   0x000208f0      0x834 src/main.o
  .debug_macro   0x00021124       0x94 src/main.o
 
-.debug_line     0x00000000     0xeda4
+.debug_line     0x00000000     0xedca
  .debug_line    0x00000000      0xbe4 src/ASF/sam/drivers/rtc/rtc.o
  .debug_line    0x00000be4      0xa72 src/ASF/sam/drivers/rtt/rtt.o
  .debug_line    0x00001656      0xc41 src/ASF/sam/drivers/spi/spi.o
@@ -7895,9 +7899,9 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_line    0x0000bb5f     0x106b src/ASF/sam/drivers/pmc/pmc.o
  .debug_line    0x0000cbca      0xa73 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_line    0x0000d63d      0x7e9 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_line    0x0000de26      0xf7e src/main.o
+ .debug_line    0x0000de26      0xfa4 src/main.o
 
-.debug_str      0x00000000    0x8fde9
+.debug_str      0x00000000    0x8fe15
  .debug_str     0x00000000    0x81bc3 src/ASF/sam/drivers/rtc/rtc.o
                               0x82272 (size before relaxing)
  .debug_str     0x00081bc3      0x132 src/ASF/sam/drivers/rtt/rtt.o
@@ -7934,10 +7938,10 @@ OUTPUT(OLED1.elf elf32-littlearm)
                               0x8274d (size before relaxing)
  .debug_str     0x0008f8bd      0x137 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
                               0x72859 (size before relaxing)
- .debug_str     0x0008f9f4      0x3f5 src/main.o
-                              0x8d7e7 (size before relaxing)
+ .debug_str     0x0008f9f4      0x421 src/main.o
+                              0x8d821 (size before relaxing)
 
-.debug_frame    0x00000000     0x16a8
+.debug_frame    0x00000000     0x16e0
  .debug_frame   0x00000000      0x1b0 src/ASF/sam/drivers/rtc/rtc.o
  .debug_frame   0x000001b0       0xac src/ASF/sam/drivers/rtt/rtt.o
  .debug_frame   0x0000025c      0x140 src/ASF/sam/drivers/spi/spi.o
@@ -7955,14 +7959,14 @@ OUTPUT(OLED1.elf elf32-littlearm)
  .debug_frame   0x00000de0      0x494 src/ASF/sam/drivers/pmc/pmc.o
  .debug_frame   0x00001274       0x38 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_frame   0x000012ac       0x40 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_frame   0x000012ec      0x150 src/main.o
- .debug_frame   0x0000143c       0xac c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x000014e8       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
- .debug_frame   0x00001514       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00001570       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x00001590       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
- .debug_frame   0x000015c4       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
- .debug_frame   0x00001674       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x000012ec      0x188 src/main.o
+ .debug_frame   0x00001474       0xac c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00001520       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .debug_frame   0x0000154c       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x000015a8       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x000015c8       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x000015fc       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x000016ac       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
 
 Cross Reference Table
 
@@ -8152,6 +8156,8 @@ board_init                                        src/ASF/sam/boards/same70_xpla
                                                   src/main.o
 cpu_irq_enter_critical                            src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
 cpu_irq_leave_critical                            src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+cria_pino_entrada                                 src/main.o
+cria_pino_saida                                   src/main.o
 current_day                                       src/main.o
 current_hour                                      src/main.o
 current_min                                       src/main.o
@@ -8243,6 +8249,7 @@ pio_capture_set_mode                              src/ASF/sam/drivers/pio/pio.o
 pio_clear                                         src/ASF/sam/drivers/pio/pio.o
                                                   src/main.o
 pio_configure                                     src/ASF/sam/drivers/pio/pio.o
+                                                  src/main.o
                                                   src/oled/ssd1306.o
 pio_configure_interrupt                           src/ASF/sam/drivers/pio/pio.o
                                                   src/ASF/sam/drivers/pio/pio_handler.o

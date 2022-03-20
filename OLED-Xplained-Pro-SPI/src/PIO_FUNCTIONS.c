@@ -15,3 +15,13 @@ void pisca_led (int n, int t, Pio *pio, uint32_t mask) {
 		delay_ms(t);
 	}
 }
+
+void cria_pino_entrada(Pio *pio, uint32_t ul_id, uint32_t mask){
+	pmc_enable_periph_clk(ul_id);
+	pio_configure(pio, PIO_INPUT, mask, PIO_DEFAULT);
+}
+
+void cria_pino_saida(Pio *pio, uint32_t ul_id, uint32_t mask){
+	pmc_enable_periph_clk(ul_id);
+	pio_configure(pio, PIO_OUTPUT_0, mask, PIO_DEFAULT);
+}
