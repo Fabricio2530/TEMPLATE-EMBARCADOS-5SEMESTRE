@@ -36,29 +36,32 @@ int main (void)
   /* Insert application code here, after the board has been initialized. */
 	while(1) {
 			
-			if (!pio_get(BUT_PI1,PIO_INPUT, BUT_PI1_IDX_MASK)) {
+			if (flag_but1) {
 					
 				pin_toggle(LED_PI1, LED_PI1_IDX_MASK);
 				delay_ms(300);
 				pin_toggle(LED_PI1, LED_PI1_IDX_MASK);
 				gfx_mono_draw_string("Botao 1   ", 0,16, &sysfont);
+				flag_but1 = 0;
 			}
 				
-			if (!pio_get(BUT_PI2,PIO_INPUT, BUT_PI2_IDX_MASK)) {
+			if (flag_but2) {
 				
 				pin_toggle(LED_PI2, LED_PI2_IDX_MASK);
 				delay_ms(300);
 				pin_toggle(LED_PI2, LED_PI2_IDX_MASK);
 				gfx_mono_draw_string("Botao 2   ", 0,16, &sysfont);
+				flag_but2 = 0;
 			}
 			
-			if (!pio_get(BUT_PI3,PIO_INPUT, BUT_PI3_IDX_MASK)) {
+			if (flag_but3) {
 				
 				pin_toggle(LED_PI3, LED_PI3_IDX_MASK);
 				delay_ms(300);
 				pin_toggle(LED_PI3, LED_PI3_IDX_MASK);
 				
 				gfx_mono_draw_string("Botao 3    ", 0,16, &sysfont);
+				flag_but3 = 0;
 			}
 			
 			

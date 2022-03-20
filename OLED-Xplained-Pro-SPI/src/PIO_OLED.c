@@ -35,6 +35,23 @@
 #define BUT_PI3_IDX	      19
 #define BUT_PI3_IDX_MASK (1u << BUT_PI3_IDX) // esse já está pronto.
 
+//variaveis globais
+volatile char flag_but1 = 0;
+volatile char flag_but2 = 0;
+volatile char flag_but3 = 0;
+
+void but1_callback(void){
+	flag_but1 = 1;	
+}
+
+void but2_callback(void){
+	flag_but2 = 1;
+}
+
+void but3_callback(void) {
+	flag_but3 = 1;
+}
+
 void oled_init(void) {
 	
 	pmc_enable_periph_clk(LED_PI1_ID);
@@ -69,5 +86,44 @@ void oled_init(void) {
 	pio_set_input(BUT_PI3,BUT_PI3_IDX_MASK,PIO_DEFAULT);
 	pio_pull_up(BUT_PI3,BUT_PI3_IDX_MASK,1);
 	pio_set_debounce_filter(BUT_PI3, BUT_PI3_IDX_MASK, 60);
+	
+	pio_handler_set(BUT_PI1,
+	BUT_PI1_ID,
+	BUT_PI1_IDX_MASK,
+	PIO_IT_EDGE,
+	but1_callback);
+	
+	pio_handler_set(BUT_PI2,
+	BUT_PI2_ID,
+	BUT_PI2_IDX_MASK,
+	PIO_IT_RISE_EDGE,
+	but2_callback);
+	
+	pio_handler_set(BUT_PI3,
+	BUT_PI3_ID,
+	BUT_PI3_IDX_MASK,
+	PIO_IT_RISE_EDGE,
+	but3_callback);
+	
+	// Ativa interrupção e limpa primeira IRQ gerada na ativacao
+	pio_enable_interrupt(BUT_PI1, BUT_PI1_IDX_MASK);
+	pio_get_interrupt_status(BUT_PI1);
+	
+	pio_enable_interrupt(BUT_PI2, BUT_PI2_IDX_MASK);
+	pio_get_interrupt_status(BUT_PI2);
+	
+	pio_enable_interrupt(BUT_PI3, BUT_PI3_IDX_MASK);
+	pio_get_interrupt_status(BUT_PI3);
+	
+	// Configura NVIC para receber interrupcoes do PIO do botao
+	// com prioridade 4 (quanto mais próximo de 0 maior)
+	NVIC_EnableIRQ(BUT_PI1_ID);
+	NVIC_SetPriority(BUT_PI1_ID, 4); // Prioridade 4
+	
+	NVIC_EnableIRQ(BUT_PI2_ID);
+	NVIC_SetPriority(BUT_PI2_ID, 4); // Prioridade 4
+	
+	NVIC_EnableIRQ(BUT_PI3_ID);
+	NVIC_SetPriority(BUT_PI3_ID, 4); // Prioridade 4
 	
 }
